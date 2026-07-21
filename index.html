@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Yarns of Art | Handcrafted Wool Creations</title>
+  <meta name="description" content="Handcrafted crochet wool plushies, floral bouquets, keychains, bags and custom artisan creations crafted with premium wool."/>
+  
+  <!-- CDN Dependencies -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Embedded Tailwind Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#7d562d",
+            "on-primary": "#ffffff",
+            "primary-container": "#d4a373",
+            "on-primary-container": "#5b3912",
+            "primary-fixed-dim": "#f0bd8b",
+            "secondary": "#5a6242",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#dee7bf",
+            "on-secondary-container": "#606848",
+            "tertiary": "#745662",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#c8a3b1",
+            "on-tertiary-container": "#543944",
+            "tertiary-fixed": "#ffd8e7",
+            "background": "#fefae0",
+            "surface": "#fefae0",
+            "surface-bright": "#fefae0",
+            "surface-container-low": "#f8f4db",
+            "surface-container": "#f2efd5",
+            "surface-container-high": "#ede9cf",
+            "surface-container-highest": "#e7e3ca",
+            "on-surface": "#1d1c0d",
+            "on-surface-variant": "#50453b",
+            "outline": "#82756a",
+            "outline-variant": "#d4c4b7",
+            "error": "#ba1a1a"
+          },
+          fontFamily: {
+            "serif": ["Libre Caslon Text", "serif"],
+            "sans": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          spacing: {
+            "margin-mobile": "16px",
+            "margin-desktop": "48px",
+            "container-max": "1280px"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Embedded CSS Stylesheet -->
+  <style>
+    :root {
+      --color-primary: #7d562d;
+      --color-on-primary: #ffffff;
+      --color-primary-container: #d4a373;
+      --color-on-primary-container: #5b3912;
+      --color-secondary: #5a6242;
+      --color-tertiary: #745662;
+      --color-background: #fefae0;
+      --color-surface-container-low: #f8f4db;
+      --color-on-surface: #1d1c0d;
+      --color-on-surface-variant: #50453b;
+      --color-outline-variant: #d4c4b7;
+      --font-heading: 'Libre Caslon Text', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-background);
+      color: var(--color-on-surface);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: var(--font-heading);
+    }
+
+    /* Tactile Wool Overlay Texture */
+    .wool-texture-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(125, 86, 45, 0.08) 1px, transparent 0);
+      background-size: 16px 16px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .grain-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+      background-size: 8px 8px;
+      pointer-events: none;
+      z-index: 99;
+    }
+
+    /* Stitched Line Details */
+    .stitched-line {
+      background-image: linear-gradient(to right, #82756a 50%, rgba(255, 255, 255, 0) 0%);
+      background-position: bottom;
+      background-size: 12px 2px;
+      background-repeat: repeat-x;
+    }
+
+    .stitched-border {
+      border-bottom: 2px dashed var(--color-outline-variant);
+    }
+
+    /* Elevation & Micro-Interactions */
+    .soft-elevation {
+      box-shadow: 0 10px 30px -12px rgba(74, 63, 53, 0.12);
+    }
+
+    .hover-lift {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px -10px rgba(74, 63, 53, 0.16);
+    }
+
+    .pill-button {
+      transition: all 0.25s ease;
+    }
+
+    .pill-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(125, 86, 45, 0.2);
+    }
+
+    .pill-button:active {
+      transform: scale(0.98);
+    }
+
+    /* Badge animation */
+    @keyframes cartBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    .cart-bounce {
+      animation: cartBounce 0.4s ease-out;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-surface-container-low);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-primary-container);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-primary);
+    }
+
+    /* Page View Router Transitions */
+    .page-view {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .page-view.active-view {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-sans selection:bg-primary-container selection:text-white relative">
+  <div class="grain-overlay"></div>
+
+  <!-- Shared Header Nav -->
+  <header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
+    <nav class="flex justify-between items-center w-full px-4 md:px-margin-desktop py-4 max-w-container-max mx-auto h-20">
+      <a href="#home" onclick="navigateTo('home'); return false;" class="font-serif text-2xl md:text-3xl text-primary font-bold tracking-tight italic">Yarns of Art</a>
+      
+      <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" data-view="home" href="#home" onclick="navigateTo('home'); return false;">Home</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" data-view="shop" href="#shop" onclick="navigateTo('shop'); return false;">Shop</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#home-materials" onclick="navigateTo('home'); setTimeout(()=>document.getElementById('materials-section').scrollIntoView(),100); return false;">Materials</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" data-view="about" href="#about" onclick="navigateTo('about'); return false;">About</a>
+        <button class="trigger-custom-order text-on-surface-variant hover:text-primary transition-colors">Custom Orders</button>
+      </div>
+
+      <div class="flex items-center gap-4 text-primary">
+        <!-- Currency Switcher -->
+        <div class="hidden sm:flex bg-surface-container rounded-full p-1 border border-outline-variant/30 text-xs font-semibold">
+          <button class="currency-btn px-3 py-1 rounded-full transition-all" data-curr="INR">₹ INR</button>
+          <button class="currency-btn px-3 py-1 rounded-full transition-all" data-curr="USD">$ USD</button>
+        </div>
+
+        <!-- Cart Trigger Button -->
+        <button class="trigger-cart relative p-2 hover:opacity-80 transition-opacity flex items-center" aria-label="Open Shopping Cart">
+          <span class="material-symbols-outlined text-2xl">shopping_basket</span>
+          <span class="cart-badge-count hidden absolute -top-1 -right-1 bg-tertiary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-surface">0</span>
+        </button>
+
+        <a href="#about" onclick="navigateTo('about'); return false;" class="p-2 hover:opacity-80 transition-opacity hidden sm:block" title="About Artisans">
+          <span class="material-symbols-outlined text-2xl">account_circle</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open Menu">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 hidden"></div>
+  <div id="mobile-menu-drawer" class="fixed top-0 left-0 w-4/5 max-w-sm h-full bg-surface z-50 p-6 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 shadow-2xl">
+    <div>
+      <div class="flex justify-between items-center mb-8 pb-4 border-b border-outline-variant/30">
+        <span class="font-serif text-xl font-bold text-primary italic">Yarns of Art</span>
+        <button id="mobile-menu-close" class="p-2 text-on-surface-variant hover:text-primary">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-6 font-medium text-lg">
+        <a href="#home" onclick="navigateTo('home'); closeMobileMenu(); return false;" class="text-on-surface-variant hover:text-primary">Home</a>
+        <a href="#shop" onclick="navigateTo('shop'); closeMobileMenu(); return false;" class="text-on-surface-variant hover:text-primary">Shop Collection</a>
+        <a href="#about" onclick="navigateTo('about'); closeMobileMenu(); return false;" class="text-on-surface-variant hover:text-primary">About Artisans</a>
+        <button class="trigger-custom-order text-left text-on-surface-variant hover:text-primary" onclick="closeMobileMenu();">Custom Orders</button>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-outline-variant/30">
+      <p class="text-xs text-on-surface-variant mb-3 font-semibold">Select Currency</p>
+      <div class="flex bg-surface-container rounded-full p-1 border border-outline-variant/30 text-xs font-semibold">
+        <button class="currency-btn flex-1 py-2 rounded-full text-center" data-curr="INR">₹ INR</button>
+        <button class="currency-btn flex-1 py-2 rounded-full text-center" data-curr="USD">$ USD</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="relative min-h-[70vh]">
+    <div class="wool-texture-overlay"></div>
+
+    <!-- ============================================ -->
+    <!-- VIEW 1: HOME PAGE -->
+    <!-- ============================================ -->
+    <div id="view-home" class="page-view active-view">
+      <!-- Hero Section -->
+      <section class="relative min-h-[85vh] flex items-center px-4 md:px-margin-desktop overflow-hidden">
+        <div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-12 items-center w-full py-16 md:py-24">
+          <div class="z-10 order-2 lg:order-1">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold tracking-wider mb-6">HANDMADE WITH LOVE ❤️</span>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight text-on-surface">Handcrafted Wool Creations Made with Love</h1>
+            <p class="text-on-surface-variant text-lg mb-10 max-w-xl leading-relaxed">
+              Yarns of Art specializes in beautiful handmade creations crafted entirely from high-quality wool yarn. Every product is carefully crocheted by hand, making each piece unique, soft, durable, and full of personality.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#shop" onclick="navigateTo('shop'); return false;" class="pill-button bg-primary text-on-primary px-8 py-4 rounded-full font-semibold text-xs tracking-widest uppercase hover:shadow-lg inline-flex items-center gap-2">
+                <span>SHOP COLLECTION</span>
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+              <button class="trigger-custom-order pill-button border border-outline text-primary px-8 py-4 rounded-full font-semibold text-xs tracking-widest uppercase hover:bg-surface-container">
+                CUSTOM REQUEST
+              </button>
+            </div>
+          </div>
+          <div class="relative order-1 lg:order-2 flex justify-center items-center">
+            <div class="relative w-full aspect-square max-w-md">
+              <div class="absolute inset-0 bg-primary-container rounded-full opacity-15 animate-pulse"></div>
+              <img class="relative z-10 w-full h-full object-cover rounded-full border-8 border-white shadow-2xl" 
+                   alt="Handcrafted crochet wool plush toy amigurumi" 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdmQDFyXBAGSbsOONVEVypfMQ5bI9NBmA8CV2xpEvmGt0IWF-rwClBCJ-sSOmhNVrjWPcMvv1iGOnhN6_CN6VC9IZwFGb7QsIlLWy_hP0JC699Y7YqgimqpuDkr13VlG5v3jWFcQAAKgraAguwHbH2SdYflaeAu6pi3kAD-0D-78RAfG_rnrAoTf7ZX9RsDRjYD63eKCEQ6G07v5vtv7VAkjS9_4sjph-ttr1A4xU8lkSkYqJteCwnDpCKEfQ8FkUDmIdu99NXSFI"/>
+              <div class="absolute -bottom-4 -right-4 bg-tertiary-fixed p-5 rounded-2xl shadow-xl z-20 text-tertiary flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-on-tertiary-container">100% Organic Wool</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Bento Grid -->
+      <section class="py-24 px-4 md:px-margin-desktop bg-surface-container-low relative" id="products">
+        <div class="max-w-container-max mx-auto">
+          <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <h2 class="font-serif text-3xl md:text-4xl mb-4">Our Craft Collections</h2>
+              <div class="h-1 w-24 bg-primary rounded-full"></div>
+            </div>
+            <p class="text-on-surface-variant max-w-md">A curated selection of unique wool crafts, from delicate flowers to functional bags, all handmade to perfection.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto">
+            <!-- Large Card: Flowers -->
+            <div class="md:col-span-2 bg-surface rounded-3xl overflow-hidden hover-lift soft-elevation group relative min-h-[340px] flex flex-col justify-end">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
+                   style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDX03PqlKdXGSfAvnB-0S3PnVv-oxrPSoTxOZuFygDcys2f8qvq--vcd_YhZ-rFg5kq5Ee0bqr4XuAGgq7CRThx052c8ydghhUr6D8R3nnDLy6L6ZqOZzAdutUkJHLGo_tKebk40TWjf0AUDwNyn2WZbucXaoKZNGCB90R-edZZHa9uCrdBfmKwvd6nzTIBhqBusKoaZFgdCG4N1OOVUr5oh7O46HIYTS9mdSzUwDfg3j_ijQo482yu9iA6DSjWgM52fh1u0N5ijJI')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+              <div class="relative z-10 p-8 text-white">
+                <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-3">BOTANICAL SERIES</span>
+                <h3 class="font-serif text-2xl md:text-3xl mb-2">Crochet Wool Flowers</h3>
+                <p class="text-sm opacity-90 mb-6">Everlasting beauty in every petal crafted from Australian merino wool.</p>
+                <a href="#product-rose" onclick="navigateTo('product-rose'); return false;" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase border-b-2 border-white pb-1 hover:text-primary-fixed-dim transition-colors">
+                  VIEW ETERNAL ROSE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Amigurumi Plushies -->
+            <div class="md:col-span-1 bg-tertiary-container/30 rounded-3xl p-8 flex flex-col justify-between hover-lift border border-outline-variant/30">
+              <div>
+                <span class="material-symbols-outlined text-tertiary text-4xl mb-4">toys</span>
+                <h3 class="font-serif text-xl mb-2">Wool Plush Toys</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Soft amigurumi friends full of cozy personality.</p>
+              </div>
+              <div class="mt-6 text-center">
+                <img class="w-full h-36 object-contain rounded-2xl mx-auto" 
+                     alt="Amigurumi plush toys" 
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbTMrNpJZ6c8y7b4ry1ezNBhmbS1S5ah8huqP87wdVrs2ETa-IpVy8jt2lPtIxdyFvIcWnhwn5KgoTFleMoRY0moJ7ua2A1wzBMsvKbACUGDzCfddA1WZzjWCi5iZY0pIG1HmA3iyazHt5oC5TYwTPCDsrxyWRVqihK-QNn5kchgyaxy1Qb3nAWrNadxxa6IbNDVH72W_X1jZSRnqDTVZFjdKmV3UoKfkfbHTl6QMRAHtJgUrUIqiBDv5oLl-DjELWPbC0MLlj4fI"/>
+                <a href="#product-bunny" onclick="navigateTo('product-bunny'); return false;" class="inline-block mt-4 text-xs font-bold text-tertiary uppercase tracking-wider hover:underline">EXPLORE BUNNY →</a>
+              </div>
+            </div>
+
+            <!-- Keychains & Charms -->
+            <div class="md:col-span-1 bg-secondary-container/30 rounded-3xl p-8 flex flex-col justify-between hover-lift border border-outline-variant/30">
+              <div>
+                <span class="material-symbols-outlined text-secondary text-4xl mb-4">key</span>
+                <h3 class="font-serif text-xl mb-2">Wool Keychains</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Small handmade charms to brighten your everyday bag.</p>
+              </div>
+              <div class="flex flex-col items-center justify-center mt-6">
+                <div class="w-20 h-20 rounded-full bg-white/70 border border-outline-variant/40 flex items-center justify-center shadow-inner">
+                  <span class="material-symbols-outlined text-3xl text-secondary">flare</span>
+                </div>
+                <a href="#shop" onclick="navigateTo('shop', 'keychains'); return false;" class="mt-4 text-xs font-bold text-secondary uppercase tracking-wider hover:underline">SHOP CHARMS →</a>
+              </div>
+            </div>
+
+            <!-- Knit Bags -->
+            <div class="md:col-span-1 bg-surface rounded-3xl overflow-hidden hover-lift soft-elevation group relative min-h-[300px] flex flex-col justify-end">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
+                   style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlSdY-7iDM7Xls1Tj7ko2Mxz5UNzLmRpBEIcA5kHnZTPJdTGs3GlJw8KGyt7Eup9tJk04LXjnMV9YF80RE3i0LqRxEqO18uMSUSwweiWtHDYEZ9N2MTDPOQTeEjUBzKAMcAeJRxfdchzh9kdlMiiUvpzVudZzmIlBaXio9rwlSTI0mI9bxGAk5-HZzU2CWWyJWZOQVOP-d_WGXCAdxQYA50aAwokXnLB2qkbg18dOLjqV_rc-CQPqnN7vdSU01RLEsbxRHmjUs2Ng')"></div>
+              <div class="absolute inset-0 bg-black/30"></div>
+              <div class="relative z-10 p-6 text-white">
+                <h3 class="font-serif text-xl font-bold">Chunky Wool Bags</h3>
+                <a href="#shop" onclick="navigateTo('shop', 'bags'); return false;" class="inline-block mt-2 text-xs font-semibold underline">Discover Accessories</a>
+              </div>
+            </div>
+
+            <!-- Custom Orders CTA -->
+            <div class="md:col-span-3 bg-primary-container rounded-3xl p-8 md:p-12 text-on-primary flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
+              <div class="absolute -right-10 -bottom-10 opacity-15 pointer-events-none">
+                <span class="material-symbols-outlined text-[200px]">edit_note</span>
+              </div>
+              <div class="max-w-xl z-10 mb-6 md:mb-0">
+                <h3 class="font-serif text-2xl md:text-3xl mb-3">Custom Crochet Orders</h3>
+                <p class="text-sm opacity-90 leading-relaxed">Bring your imagination to life. We specialize in personalized gifts, customized colorways, and bespoke amigurumi tailored to your request.</p>
+              </div>
+              <button class="trigger-custom-order bg-white text-primary px-8 py-4 rounded-full font-semibold text-xs tracking-wider uppercase hover:bg-surface-bright transition-colors z-10 whitespace-nowrap shadow-md">
+                START CUSTOM ORDER
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Materials Section -->
+      <section class="py-24 px-4 md:px-margin-desktop overflow-hidden" id="materials-section">
+        <div class="max-w-container-max mx-auto">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+              <div class="absolute -top-12 -left-12 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+              <div class="relative z-10 space-y-6">
+                <div class="p-2 bg-white rounded-3xl shadow-xl rotate-2">
+                  <img class="w-full h-72 object-cover rounded-2xl" 
+                       alt="Wool yarn skeins" 
+                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8aLBdWYr_fKLAI3Rtc7LCIVOmZBzwXlmYULJ7z5V7tUgpTCgl0fXdJ9Ycmn3yXaJqj-wowIi_40ZFoqYOZsl5rDYFF9xmjbCk3Fqm54h5VLeiI9GL-1VHF4Yn-qigi8SZc5oNGhCxd9A58gtv3CFXTu3it6-EG2mXRf0tBJy_SNRebpBm0U-Tc3KKbHwAK0Nd3wNjSLdw2IIBjFNGsvSdzxbWrtGazQNWhNhHHIz7Yz0xAU-N6U5Pd-PKa68ETfWmoBEdttZB8Mc"/>
+                </div>
+                <div class="p-2 bg-white rounded-3xl shadow-xl -rotate-2 ml-8 md:ml-12">
+                  <img class="w-full h-56 object-cover rounded-2xl" 
+                       alt="Crochet hook in wool yarn detail" 
+                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWSyfyPVxY0tfuGffieO17s5fGot53Cqm7GD1i1RuCNjfxI4vd0RA4CHLXk9Oo2kZYjOHhREgdfpxNIYYt6mZM3wbi43eRkElY2nVd5CINfRH_odrB8_tlKlyVDaYiUbtEzkvFVovgeq1ag0P5snVxGYw3yh6WaAx9NXNE9ElwgYxv4BKxyGtpiHa5FKlPoMPSKDaP7msjg_Q9N07FimIoIxp5HPDSONJkmqcBATAefaASkFW-2XfqmhUtiH9DtRyb8wiNGVUda00"/>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-xs font-bold text-secondary uppercase tracking-widest mb-2 block">100% PURE &amp; ETHICAL</span>
+              <h2 class="font-serif text-3xl md:text-4xl mb-6">Our Material Promise</h2>
+              <p class="text-on-surface-variant text-base md:text-lg mb-8 leading-relaxed">
+                "We use premium-quality wool yarn to create soft, durable, and long-lasting handmade products. Every stitch is carefully crafted by our master artisans to ensure exquisite finishing."
+              </p>
+              
+              <div class="space-y-4">
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30">
+                  <span class="material-symbols-outlined text-secondary text-2xl mt-0.5">eco</span>
+                  <div>
+                    <h4 class="font-bold text-sm text-on-surface">Ethically Sourced Organic Wool</h4>
+                    <p class="text-xs text-on-surface-variant">Naturally dyed without toxic chemicals, safe for infants and sensitive skin.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30">
+                  <span class="material-symbols-outlined text-secondary text-2xl mt-0.5">verified</span>
+                  <div>
+                    <h4 class="font-bold text-sm text-on-surface">Hypoallergenic &amp; Ultra-Soft</h4>
+                    <p class="text-xs text-on-surface-variant">Carefully washed merino &amp; alpaca wool blends providing velvety tactile warmth.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30">
+                  <span class="material-symbols-outlined text-secondary text-2xl mt-0.5">all_inclusive</span>
+                  <div>
+                    <h4 class="font-bold text-sm text-on-surface">Resilient Heritage Craft</h4>
+                    <p class="text-xs text-on-surface-variant">Stitched with reinforced yarn fibers engineered to preserve structural shape for generations.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us Grid -->
+      <section class="py-24 px-4 md:px-margin-desktop bg-surface-bright relative border-t border-outline-variant/20">
+        <div class="max-w-container-max mx-auto text-center">
+          <h2 class="font-serif text-3xl md:text-4xl mb-4">Why Choose Yarns of Art</h2>
+          <div class="h-1 w-24 bg-primary rounded-full mx-auto mb-16"></div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div class="bg-surface p-6 rounded-2xl soft-elevation flex flex-col items-center hover-lift">
+              <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-4 text-primary">
+                <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">Premium Wool Yarn</h4>
+              <p class="text-xs text-on-surface-variant">Softest selected fibers</p>
+            </div>
+
+            <div class="bg-surface p-6 rounded-2xl soft-elevation flex flex-col items-center hover-lift">
+              <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-4 text-primary">
+                <span class="material-symbols-outlined text-2xl">pan_tool_alt</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">100% Handcrafted</h4>
+              <p class="text-xs text-on-surface-variant">Meticulous stitchwork</p>
+            </div>
+
+            <div class="bg-surface p-6 rounded-2xl soft-elevation flex flex-col items-center hover-lift">
+              <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-4 text-primary">
+                <span class="material-symbols-outlined text-2xl">eco</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">Eco-Friendly Craft</h4>
+              <p class="text-xs text-on-surface-variant">Zero plastic waste</p>
+            </div>
+
+            <div class="bg-surface p-6 rounded-2xl soft-elevation flex flex-col items-center hover-lift">
+              <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-4 text-primary">
+                <span class="material-symbols-outlined text-2xl">redeem</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">Gift Packaging</h4>
+              <p class="text-xs text-on-surface-variant">Ready for loved ones</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter CTA -->
+      <section class="py-20 px-4 md:px-margin-desktop">
+        <div class="max-w-4xl mx-auto text-center bg-surface-container-highest p-10 md:p-16 rounded-[40px] border border-outline-variant/30 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-24 h-24 bg-tertiary-fixed/40 rounded-br-full"></div>
+          <div class="relative z-10 max-w-xl mx-auto">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4">mark_email_unread</span>
+            <h2 class="font-serif text-3xl md:text-4xl mb-4">Stay in the Loop</h2>
+            <p class="text-on-surface-variant text-sm md:text-base mb-8">Join our inner circle for new collection drops, limited seasonal pattern launches, and exclusive member discounts.</p>
+            <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing to Yarns of Art!'); this.reset();" class="flex flex-col sm:flex-row gap-3">
+              <input required type="email" placeholder="Enter your email address" class="flex-1 bg-white border-none rounded-full px-6 py-4 text-sm focus:ring-2 focus:ring-primary outline-none shadow-sm"/>
+              <button type="submit" class="pill-button bg-primary text-on-primary px-8 py-4 rounded-full font-semibold text-xs tracking-widest uppercase hover:bg-on-primary-container">SUBSCRIBE</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- VIEW 2: SHOP CATALOG -->
+    <!-- ============================================ -->
+    <div id="view-shop" class="page-view max-w-container-max mx-auto px-4 md:px-margin-desktop py-12">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-secondary uppercase tracking-widest mb-2 block">ARTISANAL WEAVE CATALOG</span>
+        <h1 class="font-serif text-4xl md:text-5xl mb-4 text-on-surface">Handcrafted Wool Collection</h1>
+        <p class="text-on-surface-variant text-base leading-relaxed">
+          Discover organic wool plushies, long-lasting flowers, and handcrafted everyday accessories individually stitched with love.
+        </p>
+      </div>
+
+      <!-- Filter Bar & Live Search -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 bg-surface-container-low p-4 rounded-3xl border border-outline-variant/30">
+        <div class="flex flex-wrap items-center gap-2" id="shop-category-filters">
+          <button class="shop-filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-primary text-on-primary transition-all" data-category="all">All Items</button>
+          <button class="shop-filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all border border-outline-variant/30" data-category="plushies">Plushies</button>
+          <button class="shop-filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all border border-outline-variant/30" data-category="flowers">Flowers</button>
+          <button class="shop-filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all border border-outline-variant/30" data-category="bags">Bags</button>
+          <button class="shop-filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all border border-outline-variant/30" data-category="keychains">Keychains</button>
+        </div>
+
+        <div class="relative w-full md:w-72">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+          <input id="shop-search-input" type="text" placeholder="Search products..." class="w-full bg-white border border-outline-variant/40 rounded-full py-2.5 pl-11 pr-4 text-xs focus:ring-1 focus:ring-primary outline-none shadow-xs"/>
+        </div>
+      </div>
+
+      <!-- Product Cards Grid -->
+      <div id="shop-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- VIEW 3: PRODUCT DETAIL (BUNNY PLUSHIE) -->
+    <!-- ============================================ -->
+    <div id="view-product-bunny" class="page-view max-w-container-max mx-auto px-4 md:px-margin-desktop py-8">
+      <div class="mb-6">
+        <nav class="flex items-center gap-2 text-xs font-semibold text-on-surface-variant/70">
+          <a class="hover:text-primary" href="#home" onclick="navigateTo('home'); return false;">Home</a>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <a class="hover:text-primary" href="#shop" onclick="navigateTo('shop'); return false;">Shop Collection</a>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <span class="text-on-surface">Handcrafted Wool Bunny Plushie</span>
+        </nav>
+      </div>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="relative group">
+          <div class="aspect-square overflow-hidden rounded-full border-8 border-surface-container-low shadow-lg max-w-lg mx-auto">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                 alt="Cream colored wool bunny plushie" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6zmez2RRzahdj9vn154QS8vdyPqV-S6XFf22jEx0gHDd-W64m8bH7-4c1LvNpkg9J3ONIF35fORBsE0BQB3YMYo9DiHRUmrca-hueV-ofBkwkdqgtXeUKGRWhTljpKtuysx0rixQwIexv6uoiW06JlwuIMGlsNeJPhZ6wIfkNynKnkXlDxwx1Lw2Fr7BlYAHHVmOebxfwNxg8ffNUTxUgOiXBkjpu_wm9ly1yY4ha52ibp6rywsrgpMvSQ1SEPTmtyhewWaq2Js"/>
+          </div>
+          <div class="absolute -bottom-2 right-4 md:right-12 bg-tertiary-container p-5 rounded-full shadow-xl text-on-tertiary-container rotate-12 flex items-center justify-center">
+            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">favorite</span>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold tracking-wider uppercase inline-block mb-3">BESTSELLER AMIGURUMI</span>
+            <h1 class="font-serif text-3xl md:text-5xl text-on-surface font-normal">Handcrafted Wool Bunny Plushie</h1>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <p class="text-primary font-serif text-3xl md:text-4xl font-bold" data-price-usd="45" data-price-inr="3750">₹3,750</p>
+            <div class="flex items-center gap-1 text-primary text-xs bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/30">
+              <div class="flex">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+              </div>
+              <span class="font-bold ml-1">4.9</span>
+              <span class="text-on-surface-variant/70">(128 reviews)</span>
+            </div>
+          </div>
+
+          <p class="text-on-surface-variant text-base leading-relaxed">
+            A soft, huggable friend made with 100% premium organic wool yarn. Perfect for little hands and cozy nurseries. Each bunny is individually stitched with meticulous attention to detail, ensuring a lifelong companion for your little ones.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <button onclick="addToCart('bunny-plushie')" class="pill-button bg-primary text-on-primary font-semibold text-xs tracking-widest uppercase px-8 py-4 rounded-full flex items-center gap-3 shadow-md">
+              <span class="material-symbols-outlined text-lg">shopping_basket</span>
+              ADD TO BASKET
+            </button>
+            <button class="trigger-custom-order pill-button border border-primary text-primary font-semibold text-xs tracking-widest uppercase px-8 py-4 rounded-full flex items-center gap-3">
+              <span class="material-symbols-outlined text-lg">edit_note</span>
+              CUSTOM COLORWAY
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Specifications -->
+      <section class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+        <div class="lg:col-span-2 bg-surface-container-low/60 rounded-3xl p-8 md:p-12 border border-outline-variant/30 space-y-8">
+          <h2 class="font-serif text-2xl md:text-3xl text-on-surface">Product Specifications</h2>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="font-bold text-xs uppercase tracking-widest text-primary mb-2">Materials</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Made from 100% organic wool sourced from sustainable local farms. Stuffed with hypoallergenic polyester fiberfill.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xs uppercase tracking-widest text-primary mb-2">Dimensions</h3>
+              <ul class="text-xs text-on-surface-variant space-y-2">
+                <li class="flex justify-between border-b border-outline-variant/20 pb-1">
+                  <span>Height</span><span class="font-bold">12 inches</span>
+                </li>
+                <li class="flex justify-between border-b border-outline-variant/20 pb-1">
+                  <span>Width</span><span class="font-bold">5 inches</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-xs uppercase tracking-widest text-primary mb-2">Care Instructions</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Hand wash gently in cool water with mild wool detergent. Air dry flat.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container p-8 rounded-3xl flex flex-col justify-center text-center space-y-4 border border-primary/20 relative overflow-hidden">
+          <span class="material-symbols-outlined text-primary text-5xl mx-auto">draw</span>
+          <h3 class="font-serif text-2xl">The Craftsmanship</h3>
+          <p class="text-xs font-semibold text-primary italic uppercase tracking-wider">Handmade with Love</p>
+          <div class="stitched-border mx-auto w-1/2 my-2"></div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Each plushie takes over <strong>8+ hours</strong> of focused hand-crocheting to complete.
+          </p>
+        </div>
+      </section>
+
+      <!-- Customer Reviews -->
+      <section class="mb-20">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
+          <div>
+            <h2 class="font-serif text-3xl mb-2">Voices of the Community</h2>
+            <p class="text-xs text-primary font-bold">4.9/5 based on 128 verified reviews</p>
+          </div>
+          <button class="trigger-write-review pill-button border border-primary text-primary font-semibold text-xs tracking-wider uppercase px-6 py-3 rounded-full flex items-center gap-2">
+            <span class="material-symbols-outlined text-base">rate_review</span>
+            WRITE A REVIEW
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+            <p class="text-xs text-on-surface-variant italic leading-relaxed">"The bunny is even softer than I imagined! The craftsmanship is truly remarkable, you can feel the love in every stitch."</p>
+            <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+              <span class="font-bold text-xs">Sarah M.</span>
+              <span class="text-[10px] font-semibold text-secondary uppercase">Verified Buyer</span>
+            </div>
+          </div>
+          <div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+            <p class="text-xs text-on-surface-variant italic leading-relaxed">"Perfect addition to our nursery. It's rare to find toys made with such high-quality natural materials these days."</p>
+            <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+              <span class="font-bold text-xs">James L.</span>
+              <span class="text-[10px] font-semibold text-secondary uppercase">Verified Buyer</span>
+            </div>
+          </div>
+          <div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+            <p class="text-xs text-on-surface-variant italic leading-relaxed">"Ordering was seamless and the packaging was completely plastic-free and beautiful. Highly recommend Yarns of Art!"</p>
+            <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+              <span class="font-bold text-xs">Elena R.</span>
+              <span class="text-[10px] font-semibold text-secondary uppercase">Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- VIEW 4: PRODUCT DETAIL (ROSE BOUQUET) -->
+    <!-- ============================================ -->
+    <div id="view-product-rose" class="page-view max-w-container-max mx-auto px-4 md:px-margin-desktop py-8">
+      <div class="mb-6">
+        <nav class="flex items-center gap-2 text-xs font-semibold text-on-surface-variant/70">
+          <a class="hover:text-primary" href="#home" onclick="navigateTo('home'); return false;">Home</a>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <a class="hover:text-primary" href="#shop" onclick="navigateTo('shop'); return false;">Shop Collection</a>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <span class="text-on-surface">Everlasting Wool Rose Bouquet</span>
+        </nav>
+      </div>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="relative group">
+          <div class="aspect-square overflow-hidden rounded-full border-8 border-surface-container-low shadow-lg max-w-lg mx-auto">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                 alt="Crochet wool rose bouquet" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnSBOTgpFaqHT-TuQc2_tJM4kWZdWHOZMg9r9QMs1ht-6TCxzaekXbSvn8-fBWI_YrcWWYqvavEClBedu2aP81e93kiw6PB2_woPfZXk1AieZgxJlp9-FwCqtcPw1UCo8zCEphaxGh5sc3ySUtqn5vsuODuPcIpbcA8_czLtmY1MWU1UrCjL3Ge6iYYEmEpSrA4jxon9AbIuYp3cMOdqMNW4Lquj4fMN9f8MnEcs2uh3mEARRnAomgtOO1VvxYSM5gdu2rOJm2Y88"/>
+          </div>
+          <div class="absolute -bottom-2 right-4 md:right-12 bg-tertiary-container p-5 rounded-full shadow-xl text-on-tertiary-container rotate-12 flex items-center justify-center">
+            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">local_florist</span>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-wider uppercase inline-block mb-3">HERITAGE BOTANICAL</span>
+            <h1 class="font-serif text-3xl md:text-5xl text-on-surface font-normal">Everlasting Wool Rose Bouquet</h1>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <p class="text-primary font-serif text-3xl md:text-4xl font-bold" data-price-usd="280" data-price-inr="22999">₹22,999</p>
+            <div class="flex items-center gap-1 text-primary text-xs bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/30">
+              <span class="font-bold">5.0 ★</span>
+              <span class="text-on-surface-variant/70">(94 reviews)</span>
+            </div>
+          </div>
+
+          <p class="text-on-surface-variant text-base leading-relaxed">
+            A long-term investment in art and a sustainable alternative to fresh flowers. This exquisite bouquet is handcrafted from 100% premium Australian merino wool, offering a timeless beauty that never fades.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <button onclick="addToCart('rose-bouquet')" class="pill-button bg-primary text-on-primary font-semibold text-xs tracking-widest uppercase px-8 py-4 rounded-full flex items-center gap-3 shadow-md">
+              <span class="material-symbols-outlined text-lg">shopping_basket</span>
+              ADD TO BASKET
+            </button>
+            <button class="trigger-custom-order pill-button border border-primary text-primary font-semibold text-xs tracking-widest uppercase px-8 py-4 rounded-full flex items-center gap-3">
+              <span class="material-symbols-outlined text-lg">palette</span>
+              CUSTOM BOUQUET COLORS
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- VIEW 5: ABOUT ARTISANS -->
+    <!-- ============================================ -->
+    <div id="view-about" class="page-view max-w-container-max mx-auto px-4 md:px-margin-desktop py-16">
+      <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+        <span class="text-xs font-bold text-secondary uppercase tracking-widest block">HERITAGE &amp; TACTILE ETHOS</span>
+        <h1 class="font-serif text-4xl md:text-5xl text-on-surface">Handmade with Love ❤️</h1>
+        <p class="text-on-surface-variant text-base md:text-lg leading-relaxed">
+          Yarns of Art was born from a deep reverence for traditional fiber arts, warm sun-drenched knitting studios, and the rhythmic, meditative beauty of hand crocheting.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="space-y-6">
+          <h2 class="font-serif text-3xl text-on-surface">The Artisanal Philosophy</h2>
+          <div class="h-1 w-16 bg-primary rounded-full"></div>
+          <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">
+            In a world dominated by mass production, Yarns of Art stands for slow, deliberate craftsmanship. Every piece begins as a raw skein of ethically harvested wool yarn and is transformed loop by loop into an heirloom creation.
+          </p>
+        </div>
+        <div class="bg-white p-3 rounded-3xl shadow-xl rotate-1">
+          <img class="w-full h-80 object-cover rounded-2xl" 
+               alt="Master artisan crocheting with wool yarn" 
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWSyfyPVxY0tfuGffieO17s5fGot53Cqm7GD1i1RuCNjfxI4vd0RA4CHLXk9Oo2kZYjOHhREgdfpxNIYYt6mZM3wbi43eRkElY2nVd5CINfRH_odrB8_tlKlyVDaYiUbtEzkvFVovgeq1ag0P5snVxGYw3yh6WaAx9NXNE9ElwgYxv4BKxyGtpiHa5FKlPoMPSKDaP7msjg_Q9N07FimIoIxp5HPDSONJkmqcBATAefaASkFW-2XfqmhUtiH9DtRyb8wiNGVUda00"/>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="bg-surface-container-highest border-t border-outline-variant/30 mt-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4 md:px-margin-desktop py-16 max-w-container-max mx-auto">
+      <div>
+        <h3 class="font-serif text-2xl text-primary font-bold italic mb-4">Yarns of Art</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed max-w-sm">Handcrafting timeless wool pieces with heritage crochet techniques, warm earth colors, and modern editorial elegance.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-xs tracking-wider uppercase text-primary mb-4">Quick Navigation</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-on-surface-variant">
+          <a href="#home" onclick="navigateTo('home'); return false;" class="hover:text-primary">Home</a>
+          <a href="#shop" onclick="navigateTo('shop'); return false;" class="hover:text-primary">Shop All Products</a>
+          <a href="#product-bunny" onclick="navigateTo('product-bunny'); return false;" class="hover:text-primary">Wool Bunny Plushie</a>
+          <a href="#product-rose" onclick="navigateTo('product-rose'); return false;" class="hover:text-primary">Everlasting Rose Bouquet</a>
+          <a href="#about" onclick="navigateTo('about'); return false;" class="hover:text-primary">About Artisans</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs text-on-surface-variant">© 2024 Yarns of Art. Handcrafted with Love ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAB for Custom Inquiry -->
+  <button id="fab-custom" class="fixed bottom-8 right-8 bg-primary-container text-on-primary-container w-14 h-14 md:w-auto md:h-14 md:px-6 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all z-40 gap-3 border border-white/40">
+    <span class="material-symbols-outlined text-2xl">mail</span>
+    <span class="hidden md:inline font-semibold text-xs tracking-widest uppercase">CUSTOM INQUIRY</span>
+  </button>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div id="cart-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  <div id="cart-drawer" class="fixed top-0 right-0 w-full max-w-md h-full bg-surface z-50 flex flex-col justify-between transform translate-x-full transition-transform duration-300 shadow-2xl">
+    <div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-low">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-2xl">shopping_basket</span>
+        <h3 class="font-serif text-xl font-bold text-on-surface">Your Basket</h3>
+      </div>
+      <button id="cart-close-btn" class="p-2 text-on-surface-variant hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+
+    <div class="p-6 border-t border-outline-variant/30 bg-surface-container-low space-y-4">
+      <div class="flex justify-between items-center font-bold text-lg text-on-surface">
+        <span>Subtotal</span>
+        <span id="cart-subtotal" class="text-primary font-serif">₹0</span>
+      </div>
+      <button id="checkout-btn" class="pill-button w-full bg-primary text-on-primary py-4 rounded-full font-semibold text-xs tracking-widest uppercase shadow-md">
+        PROCEED TO CHECKOUT
+      </button>
+    </div>
+  </div>
+
+  <!-- Custom Order Modal -->
+  <div id="custom-order-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-outline-variant/30 relative">
+      <button class="close-custom-modal absolute top-6 right-6 text-on-surface-variant hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <span class="material-symbols-outlined text-primary text-4xl mb-2">auto_awesome</span>
+      <h3 class="font-serif text-2xl font-bold mb-2">Request a Custom Order</h3>
+      <p class="text-xs text-on-surface-variant mb-6">Describe your desired wool plushie, custom flower colors, or personal design preferences.</p>
+      <form id="custom-order-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Your Name</label>
+          <input required type="text" placeholder="Jane Doe" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary outline-none"/>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Email Address</label>
+          <input required type="email" placeholder="jane@example.com" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary outline-none"/>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Custom Design Details</label>
+          <textarea required rows="4" placeholder="Specify colors, dimensions, characters, or reference ideas..." class="w-full bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary outline-none"></textarea>
+        </div>
+        <button type="submit" class="pill-button w-full bg-primary text-on-primary py-4 rounded-full font-semibold text-xs tracking-widest uppercase">
+          SUBMIT INQUIRY
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Write Review Modal -->
+  <div id="write-review-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-3xl max-w-md w-full p-8 shadow-2xl border border-outline-variant/30 relative">
+      <button class="close-review-modal absolute top-6 right-6 text-on-surface-variant hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <h3 class="font-serif text-2xl font-bold mb-2">Write a Review</h3>
+      <p class="text-xs text-on-surface-variant mb-6">Share your experience with the Handcrafted Wool Bunny Plushie.</p>
+      <form id="review-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Rating</label>
+          <div class="flex text-primary text-2xl gap-1 cursor-pointer">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Your Review</label>
+          <textarea required rows="4" placeholder="How soft is the wool? What did you think of the stitching?" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary outline-none"></textarea>
+        </div>
+        <button type="submit" class="pill-button w-full bg-primary text-on-primary py-4 rounded-full font-semibold text-xs tracking-widest uppercase">
+          SUBMIT REVIEW
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Embedded JavaScript Application Engine -->
+  <script>
+    // Global Application State
+    const state = {
+      currency: localStorage.getItem('yarns_currency') || 'INR',
+      cart: JSON.parse(localStorage.getItem('yarns_cart') || '[]'),
+      currentView: 'home',
+      products: [
+        {
+          id: 'bunny-plushie',
+          name: 'Handcrafted Wool Bunny Plushie',
+          category: 'plushies',
+          priceUSD: 45,
+          priceINR: 3750,
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDt6zmez2RRzahdj9vn154QS8vdyPqV-S6XFf22jEx0gHDd-W64m8bH7-4c1LvNpkg9J3ONIF35fORBsE0BQB3YMYo9DiHRUmrca-hueV-ofBkwkdqgtXeUKGRWhTljpKtuysx0rixQwIexv6uoiW06JlwuIMGlsNeJPhZ6wIfkNynKnkXlDxwx1Lw2Fr7BlYAHHVmOebxfwNxg8ffNUTxUgOiXBkjpu_wm9ly1yY4ha52ibp6rywsrgpMvSQ1SEPTmtyhewWaq2Js',
+          rating: 4.9,
+          reviewsCount: 128,
+          view: 'product-bunny'
+        },
+        {
+          id: 'rose-bouquet',
+          name: 'Everlasting Wool Rose Bouquet',
+          category: 'flowers',
+          priceUSD: 280,
+          priceINR: 22999,
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBnSBOTgpFaqHT-TuQc2_tJM4kWZdWHOZMg9r9QMs1ht-6TCxzaekXbSvn8-fBWI_YrcWWYqvavEClBedu2aP81e93kiw6PB2_woPfZXk1AieZgxJlp9-FwCqtcPw1UCo8zCEphaxGh5sc3ySUtqn5vsuODuPcIpbcA8_czLtmY1MWU1UrCjL3Ge6iYYEmEpSrA4jxon9AbIuYp3cMOdqMNW4Lquj4fMN9f8MnEcs2uh3mEARRnAomgtOO1VvxYSM5gdu2rOJm2Y88',
+          rating: 5.0,
+          reviewsCount: 94,
+          view: 'product-rose'
+        },
+        {
+          id: 'crochet-flower-vase',
+          name: 'Artisanal Crochet Flower Arrangement',
+          category: 'flowers',
+          priceUSD: 65,
+          priceINR: 5200,
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDX03PqlKdXGSfAvnB-0S3PnVv-oxrPSoTxOZuFygDcys2f8qvq--vcd_YhZ-rFg5kq5Ee0bqr4XuAGgq7CRThx052c8ydghhUr6D8R3nnDLy6L6ZqOZzAdutUkJHLGo_tKebk40TWjf0AUDwNyn2WZbucXaoKZNGCB90R-edZZHa9uCrdBfmKwvd6nzTIBhqBusKoaZFgdCG4N1OOVUr5oh7O46HIYTS9mdSzUwDfg3j_ijQo482yu9iA6DSjWgM52fh1u0N5ijJI',
+          rating: 4.8,
+          reviewsCount: 64,
+          view: 'product-rose'
+        },
+        {
+          id: 'wool-tote-bag',
+          name: 'Chunky Wool Knit Tote Bag',
+          category: 'bags',
+          priceUSD: 85,
+          priceINR: 6999,
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAlSdY-7iDM7Xls1Tj7ko2Mxz5UNzLmRpBEIcA5kHnZTPJdTGs3GlJw8KGyt7Eup9tJk04LXjnMV9YF80RE3i0LqRxEqO18uMSUSwweiWtHDYEZ9N2MTDPOQTeEjUBzKAMcAeJRxfdchzh9kdlMiiUvpzVudZzmIlBaXio9rwlSTI0mI9bxGAk5-HZzU2CWWyJWZOQVOP-d_WGXCAdxQYA50aAwokXnLB2qkbg18dOLjqV_rc-CQPqnN7vdSU01RLEsbxRHmjUs2Ng',
+          rating: 4.9,
+          reviewsCount: 42,
+          view: 'shop'
+        },
+        {
+          id: 'wool-forest-series',
+          name: 'Forest Series Crochet Plushie',
+          category: 'plushies',
+          priceUSD: 52,
+          priceINR: 4200,
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCbTMrNpJZ6c8y7b4ry1ezNBhmbS1S5ah8huqP87wdVrs2ETa-IpVy8jt2lPtIxdyFvIcWnhwn5KgoTFleMoRY0moJ7ua2A1wzBMsvKbACUGDzCfddA1WZzjWCi5iZY0pIG1HmA3iyazHt5oC5TYwTPCDsrxyWRVqihK-QNn5kchgyaxy1Qb3nAWrNadxxa6IbNDVH72W_X1jZSRnqDTVZFjdKmV3UoKfkfbHTl6QMRAHtJgUrUIqiBDv5oLl-DjELWPbC0MLlj4fI',
+          rating: 4.9,
+          reviewsCount: 78,
+          view: 'product-bunny'
+        },
+        {
+          id: 'wool-keychain-charm',
+          name: 'Handcrafted Wool Charm Keychain',
+          category: 'keychains',
+          priceUSD: 18,
+          priceINR: 1450,
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDdmQDFyXBAGSbsOONVEVypfMQ5bI9NBmA8CV2xpEvmGt0IWF-rwClBCJ-sSOmhNVrjWPcMvv1iGOnhN6_CN6VC9IZwFGb7QsIlLWy_hP0JC699Y7YqgimqpuDkr13VlG5v3jWFcQAAKgraAguwHbH2SdYflaeAu6pi3kAD-0D-78RAfG_rnrAoTf7ZX9RsDRjYD63eKCEQ6G07v5vtv7VAkjS9_4sjph-ttr1A4xU8lkSkYqJteCwnDpCKEfQ8FkUDmIdu99NXSFI',
+          rating: 4.7,
+          reviewsCount: 110,
+          view: 'shop'
+        }
+      ]
+    };
+
+    // SPA Router function
+    function navigateTo(viewId, categoryFilter = null) {
+      state.currentView = viewId;
+      document.querySelectorAll('.page-view').forEach(view => {
+        view.classList.remove('active-view');
+      });
+
+      const targetView = document.getElementById(`view-${viewId}`);
+      if (targetView) {
+        targetView.classList.add('active-view');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update Nav Link styles
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('data-view') === viewId) {
+          link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+          link.classList.remove('text-on-surface-variant');
+        } else {
+          link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+          link.classList.add('text-on-surface-variant');
+        }
+      });
+
+      if (viewId === 'shop') {
+        renderShopProducts(categoryFilter);
+      }
+    }
+
+    // Price Formatter
+    function formatPrice(usd, inr) {
+      if (state.currency === 'INR') {
+        return `₹${inr.toLocaleString('en-IN')}`;
+      }
+      return `$${usd.toFixed(2)}`;
+    }
+
+    // Cart Handlers
+    function saveCart() {
+      localStorage.setItem('yarns_cart', JSON.stringify(state.cart));
+      updateCartBadge();
+      renderCartDrawer();
+    }
+
+    function addToCart(productId, qty = 1) {
+      const product = state.products.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = state.cart.find(item => item.id === productId);
+      if (existing) {
+        existing.quantity += qty;
+      } else {
+        state.cart.push({ ...product, quantity: qty });
+      }
+
+      saveCart();
+      showToast(`Added "${product.name}" to your basket!`);
+      openCartDrawer();
+    }
+
+    function removeFromCart(productId) {
+      state.cart = state.cart.filter(item => item.id !== productId);
+      saveCart();
+    }
+
+    function updateCartQty(productId, delta) {
+      const item = state.cart.find(i => i.id === productId);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        removeFromCart(productId);
+      } else {
+        saveCart();
+      }
+    }
+
+    function updateCartBadge() {
+      const badges = document.querySelectorAll('.cart-badge-count');
+      const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+      badges.forEach(b => {
+        b.textContent = totalItems;
+        if (totalItems > 0) {
+          b.classList.remove('hidden');
+          b.classList.add('cart-bounce');
+          setTimeout(() => b.classList.remove('cart-bounce'), 400);
+        } else {
+          b.classList.add('hidden');
+        }
+      });
+    }
+
+    function renderCartDrawer() {
+      const cartContainer = document.getElementById('cart-items-list');
+      const cartSubtotalEl = document.getElementById('cart-subtotal');
+      if (!cartContainer || !cartSubtotalEl) return;
+
+      if (state.cart.length === 0) {
+        cartContainer.innerHTML = `
+          <div class="text-center py-16 px-4">
+            <span class="material-symbols-outlined text-6xl text-outline-variant mb-4">shopping_bag</span>
+            <p class="text-on-surface-variant text-lg font-medium">Your basket is empty</p>
+            <p class="text-sm text-on-surface-variant/70 mt-1">Discover handcrafted wool treasures in our collection.</p>
+            <button onclick="closeCartDrawer(); navigateTo('shop');" class="inline-block mt-6 px-6 py-3 rounded-full bg-primary text-on-primary font-semibold text-xs tracking-wider uppercase">BROWSE SHOP</button>
+          </div>
+        `;
+        cartSubtotalEl.textContent = formatPrice(0, 0);
+        return;
+      }
+
+      let subtotalUSD = 0;
+      let subtotalINR = 0;
+
+      cartContainer.innerHTML = state.cart.map(item => {
+        subtotalUSD += item.priceUSD * item.quantity;
+        subtotalINR += item.priceINR * item.quantity;
+
+        return `
+          <div class="flex items-center gap-4 py-4 border-b border-outline-variant/20">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-xl border border-outline-variant/30 flex-shrink-0" />
+            <div class="flex-1 min-w-0">
+              <h4 class="font-medium text-sm text-on-surface truncate">${item.name}</h4>
+              <p class="text-primary font-semibold text-sm mt-1">${formatPrice(item.priceUSD, item.priceINR)}</p>
+              <div class="flex items-center gap-2 mt-2">
+                <button onclick="updateCartQty('${item.id}', -1)" class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-sm font-bold text-on-surface hover:bg-outline-variant/40">-</button>
+                <span class="text-xs font-semibold px-2">${item.quantity}</span>
+                <button onclick="updateCartQty('${item.id}', 1)" class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-sm font-bold text-on-surface hover:bg-outline-variant/40">+</button>
+              </div>
+            </div>
+            <button onclick="removeFromCart('${item.id}')" class="text-outline hover:text-error transition-colors p-1" title="Remove">
+              <span class="material-symbols-outlined text-lg">delete</span>
+            </button>
+          </div>
+        `;
+      }).join('');
+
+      cartSubtotalEl.textContent = formatPrice(subtotalUSD, subtotalINR);
+    }
+
+    function openCartDrawer() {
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer) {
+        drawer.classList.remove('translate-x-full');
+        document.getElementById('cart-backdrop')?.classList.remove('hidden');
+        renderCartDrawer();
+      }
+    }
+
+    function closeCartDrawer() {
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer) {
+        drawer.classList.add('translate-x-full');
+        document.getElementById('cart-backdrop')?.classList.add('hidden');
+      }
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu-drawer')?.classList.add('-translate-x-full');
+      document.getElementById('mobile-menu-backdrop')?.classList.add('hidden');
+    }
+
+    function setCurrency(curr) {
+      state.currency = curr;
+      localStorage.setItem('yarns_currency', curr);
+
+      document.querySelectorAll('.currency-btn').forEach(btn => {
+        if (btn.getAttribute('data-curr') === curr) {
+          btn.classList.add('bg-primary', 'text-on-primary');
+          btn.classList.remove('bg-surface-container', 'text-on-surface');
+        } else {
+          btn.classList.remove('bg-primary', 'text-on-primary');
+          btn.classList.add('bg-surface-container', 'text-on-surface');
+        }
+      });
+
+      document.querySelectorAll('[data-price-usd]').forEach(el => {
+        const usd = parseFloat(el.getAttribute('data-price-usd'));
+        const inr = parseFloat(el.getAttribute('data-price-inr'));
+        el.textContent = formatPrice(usd, inr);
+      });
+
+      renderCartDrawer();
+      if (state.currentView === 'shop') renderShopProducts();
+    }
+
+    function showToast(message) {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'fixed bottom-6 left-6 z-[100] flex flex-col gap-2 pointer-events-none';
+        document.body.appendChild(container);
+      }
+
+      const toast = document.createElement('div');
+      toast.className = 'bg-surface-container-highest border border-primary/30 text-on-surface px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-bounce pointer-events-auto transition-all duration-300';
+      toast.innerHTML = `
+        <span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+        <span class="font-medium text-sm">${message}</span>
+      `;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    // Render Shop Products Logic
+    let currentCategoryFilter = 'all';
+
+    function renderShopProducts(filterOverride = null) {
+      const grid = document.getElementById('shop-product-grid');
+      const searchInput = document.getElementById('shop-search-input');
+      if (!grid) return;
+
+      if (filterOverride) currentCategoryFilter = filterOverride;
+
+      // Highlight filter buttons
+      document.querySelectorAll('.shop-filter-btn').forEach(b => {
+        if (b.getAttribute('data-category') === currentCategoryFilter) {
+          b.classList.add('bg-primary', 'text-on-primary');
+          b.classList.remove('bg-surface', 'text-on-surface');
+        } else {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface', 'text-on-surface');
+        }
+      });
+
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+      const filtered = state.products.filter(p => {
+        const matchCategory = currentCategoryFilter === 'all' || p.category === currentCategoryFilter;
+        const matchSearch = p.name.toLowerCase().includes(query);
+        return matchCategory && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-16">
+            <span class="material-symbols-outlined text-5xl text-outline-variant mb-3">search_off</span>
+            <p class="text-lg font-medium text-on-surface-variant">No wool creations found</p>
+            <p class="text-xs text-on-surface-variant/70 mt-1">Try clearing filters or searching for another key term.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => `
+        <div class="bg-surface rounded-3xl overflow-hidden hover-lift border border-outline-variant/30 flex flex-col justify-between p-5 soft-elevation">
+          <div class="relative group aspect-square rounded-2xl overflow-hidden mb-5 bg-surface-container-low cursor-pointer" onclick="navigateTo('${p.view}')">
+            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="absolute top-3 left-3 px-3 py-1 bg-white/80 backdrop-blur-xs rounded-full text-[10px] font-bold text-on-surface uppercase tracking-wider">${p.category}</span>
+          </div>
+          
+          <div>
+            <div class="flex justify-between items-start gap-2 mb-2">
+              <a href="#${p.view}" onclick="navigateTo('${p.view}'); return false;" class="font-serif text-lg font-bold text-on-surface hover:text-primary transition-colors line-clamp-1">${p.name}</a>
+              <span class="text-primary font-bold text-base" data-price-usd="${p.priceUSD}" data-price-inr="${p.priceINR}">
+                ${formatPrice(p.priceUSD, p.priceINR)}
+              </span>
+            </div>
+            
+            <div class="flex items-center gap-1 text-primary text-xs mb-6">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+              <span class="font-bold">${p.rating}</span>
+              <span class="text-on-surface-variant/60">(${p.reviewsCount} reviews)</span>
+            </div>
+          </div>
+
+          <div class="flex gap-2">
+            <button onclick="navigateTo('${p.view}')" class="flex-1 py-3 rounded-full border border-primary text-primary text-xs font-bold uppercase tracking-wider hover:bg-surface-container">
+              VIEW DETAILS
+            </button>
+            <button onclick="addToCart('${p.id}')" class="px-4 py-3 rounded-full bg-primary text-on-primary hover:bg-on-primary-container transition-colors flex items-center justify-center">
+              <span class="material-symbols-outlined text-lg">shopping_basket</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Modal Initializers
+    function initModals() {
+      const customModal = document.getElementById('custom-order-modal');
+      const reviewModal = document.getElementById('write-review-modal');
+
+      document.querySelectorAll('.trigger-custom-order, #fab-custom').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          customModal?.classList.remove('hidden');
+        });
+      });
+
+      document.querySelectorAll('.close-custom-modal').forEach(btn => {
+        btn.addEventListener('click', () => customModal?.classList.add('hidden'));
+      });
+
+      document.getElementById('custom-order-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        customModal?.classList.add('hidden');
+        showToast('Thank you! Your custom order request has been received.');
+        e.target.reset();
+      });
+
+      document.querySelectorAll('.trigger-write-review').forEach(btn => {
+        btn.addEventListener('click', () => reviewModal?.classList.remove('hidden'));
+      });
+
+      document.querySelectorAll('.close-review-modal').forEach(btn => {
+        btn.addEventListener('click', () => reviewModal?.classList.add('hidden'));
+      });
+
+      document.getElementById('review-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        reviewModal?.classList.add('hidden');
+        showToast('Thank you for sharing your review with our community!');
+        e.target.reset();
+      });
+    }
+
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const menu = document.getElementById('mobile-menu-drawer');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+
+      btn?.addEventListener('click', () => {
+        menu?.classList.remove('-translate-x-full');
+        backdrop?.classList.remove('hidden');
+      });
+
+      closeBtn?.addEventListener('click', closeMobileMenu);
+      backdrop?.addEventListener('click', closeMobileMenu);
+    }
+
+    // Document Ready Initializer
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartBadge();
+      initModals();
+      initMobileMenu();
+
+      document.querySelectorAll('.currency-btn').forEach(btn => {
+        btn.addEventListener('click', () => setCurrency(btn.getAttribute('data-curr')));
+      });
+
+      document.querySelectorAll('.shop-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          renderShopProducts(btn.getAttribute('data-category'));
+        });
+      });
+
+      document.getElementById('shop-search-input')?.addEventListener('input', () => renderShopProducts());
+
+      document.querySelectorAll('.trigger-cart').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openCartDrawer();
+        });
+      });
+
+      document.getElementById('cart-close-btn')?.addEventListener('click', closeCartDrawer);
+      document.getElementById('cart-backdrop')?.addEventListener('click', closeCartDrawer);
+
+      document.getElementById('checkout-btn')?.addEventListener('click', () => {
+        if (state.cart.length === 0) {
+          showToast('Your basket is empty!');
+          return;
+        }
+        showToast('Proceeding to checkout secure portal...');
+        closeCartDrawer();
+      });
+
+      setCurrency(state.currency);
+
+      // Check URL Hash for initial route
+      const hash = window.location.hash.replace('#', '');
+      if (['shop', 'product-bunny', 'product-rose', 'about'].includes(hash)) {
+        navigateTo(hash);
+      } else {
+        navigateTo('home');
+      }
+    });
+  </script>
+</body>
+</html>
