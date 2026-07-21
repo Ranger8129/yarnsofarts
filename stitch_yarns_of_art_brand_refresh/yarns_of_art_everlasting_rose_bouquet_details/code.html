@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Handcrafted Wool Bunny Plushie | Artisanal Weave</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffd8e7",
+                    "surface-container-low": "#f8f4db",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f2efd5",
+                    "secondary-container": "#dee7bf",
+                    "on-tertiary-fixed": "#2b141f",
+                    "inverse-surface": "#323120",
+                    "outline": "#82756a",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#5a6242",
+                    "surface-bright": "#fefae0",
+                    "surface-dim": "#dedbc2",
+                    "on-surface": "#1d1c0d",
+                    "on-secondary-fixed-variant": "#424a2d",
+                    "on-secondary-fixed": "#171e06",
+                    "tertiary": "#745662",
+                    "secondary-fixed": "#dee7bf",
+                    "surface-tint": "#7d562d",
+                    "surface-container-high": "#ede9cf",
+                    "primary-fixed": "#ffdcbd",
+                    "inverse-on-surface": "#f5f1d8",
+                    "on-tertiary-fixed-variant": "#5b3f4b",
+                    "on-secondary-container": "#606848",
+                    "on-primary-fixed-variant": "#623f18",
+                    "inverse-primary": "#f0bd8b",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e7e3ca",
+                    "primary-container": "#d4a373",
+                    "on-tertiary-container": "#543944",
+                    "tertiary-fixed-dim": "#e3bccb",
+                    "primary-fixed-dim": "#f0bd8b",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#d4c4b7",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#2c1600",
+                    "on-primary-container": "#5b3912",
+                    "on-background": "#1d1c0d",
+                    "surface-container-highest": "#e7e3ca",
+                    "background": "#fefae0",
+                    "tertiary-container": "#c8a3b1",
+                    "secondary-fixed-dim": "#c2cba4",
+                    "primary": "#7d562d",
+                    "surface": "#fefae0",
+                    "on-surface-variant": "#50453b",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Libre Caslon Text"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Libre Caslon Text"],
+                    "headline-lg-mobile": ["Libre Caslon Text"],
+                    "body-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("https://www.transparenttextures.com/patterns/linen.png");
+        }
+        .stitched-border {
+            border-bottom: 2px dashed #d4c4b7;
+        }
+        .pill-button {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .pill-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 63, 53, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<div class="grain-overlay"></div>
+<!-- TopNavBar -->
+<nav class="bg-surface sticky top-0 z-40 w-full h-20 flex justify-between items-center px-margin-desktop max-w-container-max mx-auto border-b border-outline-variant/30">
+<div class="flex items-center gap-12">
+<a class="font-headline-lg text-headline-lg text-primary italic" href="#">Artisanal Weave</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md hover:text-primary transition-colors duration-300" href="#">Shop</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300" href="#">Patterns</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300" href="#">Gallery</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 w-64 focus:ring-1 focus:ring-primary text-body-sm outline-none" placeholder="Search our collection..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:scale-95 transition-transform">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="text-primary hover:scale-95 transition-transform">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Product Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
+<div class="relative group">
+<div class="aspect-square overflow-hidden rounded-full border-8 border-surface-container-low shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A studio photograph of a charming, handcrafted cream-colored wool bunny plushie sitting upright. The amigurumi toy is expertly crocheted with a soft, tactile yarn texture visible in the high-resolution shot. It is positioned against a warm, sun-drenched minimalist background with soft shadows, embodying a premium and cozy artisanal aesthetic. The lighting is gentle and natural, emphasizing the organic materials used in its construction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnSBOTgpFaqHT-TuQc2_tJM4kWZdWHOZMg9r9QMs1ht-6TCxzaekXbSvn8-fBWI_YrcWWYqvavEClBedu2aP81e93kiw6PB2_woPfZXk1AieZgxJlp9-FwCqtcPw1UCo8zCEphaxGh5sc3ySUtqn5vsuODuPcIpbcA8_czLtmY1MWU1UrCjL3Ge6iYYEmEpSrA4jxon9AbIuYp3cMOdqMNW4Lquj4fMN9f8MnEcs2uh3mEARRnAomgtOO1VvxYSM5gdu2rOJm2Y88"/>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-4 -right-4 bg-tertiary-container p-6 rounded-full shadow-lg text-on-tertiary-container rotate-12">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">favorite</span>
+</div>
+</div>
+<div class="space-y-8">
+<nav class="flex items-center gap-2 text-label-caps font-label-caps text-on-surface-variant/60">
+<a class="hover:text-primary" href="#">Shop</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary" href="#">Plushies</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface-variant">Everlasting Bouquet</span>
+</nav>
+<div class="space-y-4">
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Everlasting Wool Rose Bouquet</h1>
+<p class="text-primary font-headline-lg text-headline-lg">$280.00</p>
+</div>
+<p class="text-on-surface-variant font-body-md leading-relaxed max-w-lg">A long-term investment in art and a sustainable alternative to fresh flowers. This exquisite bouquet is handcrafted from premium Australian merino wool, offering a timeless beauty that never fades. Each stem is meticulously shaped to capture the delicate essence of nature, delivered in 100% plastic-free packaging.</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="pill-button bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-lg">shopping_basket</span>
+                        ADD TO BASKET
+                    </button>
+<button class="pill-button border border-primary text-primary font-label-caps text-label-caps px-8 py-4 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+                        CUSTOM REQUEST
+                    </button>
+</div>
+<div class="flex items-center gap-6 pt-6 border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+<span class="text-body-sm">Ships in 2-4 days</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<span class="text-body-sm">Safety Certified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Details & Materials -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+<div class="lg:col-span-2 bg-surface-container-low/50 rounded-xl p-8 md:p-12 border border-outline-variant/20">
+<h2 class="font-headline-lg text-headline-lg mb-8">Product Details</h2>
+<div class="space-y-10">
+<div class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Materials</h3>
+<div class="h-0.5 w-12 bg-primary/20"></div>
+</div>
+<div class="md:w-2/3 space-y-3">
+<p class="text-on-surface-variant">Crafted from 100% premium Australian merino wool, known for its exceptional softness and durability. Each petal and leaf is hand-crocheted using traditional techniques, supported by internal structural wiring for perfect posing.</p>
+<div class="flex flex-wrap gap-2 pt-2"><span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-caps">MERINO WOOL</span><span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-caps">PLASTIC FREE</span><span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-caps">ARTISANAL</span></div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Dimensions</h3>
+<div class="h-0.5 w-12 bg-primary/20"></div>
+</div>
+<div class="md:w-2/3">
+<ul class="space-y-2 text-on-surface-variant"><li class="flex justify-between border-b border-outline-variant/20 pb-2"><span>Height</span><span class="font-medium">14 inches</span></li><li class="flex justify-between border-b border-outline-variant/20 pb-2"><span>Diameter</span><span class="font-medium">10 inches</span></li></ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Care Instructions</h3>
+<div class="h-0.5 w-12 bg-primary/20"></div>
+</div>
+<div class="md:w-2/3">
+<div class="flex items-start gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">wash</span>
+<p>To preserve the intricate shape of your botanical bouquet, we recommend <strong>light dusting only</strong> with a soft brush. Avoid moisture and direct sunlight to prevent fiber degradation and color fading over the years.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- "The Craftsmanship" Card -->
+<div class="bg-surface-container p-8 rounded-xl flex flex-col justify-center text-center space-y-6 border border-primary/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 opacity-10">
+<span class="material-symbols-outlined text-[120px] -mr-8 -mt-8">precision_manufacturing</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg">The Craftsmanship</h3>
+<p class="font-label-caps text-label-caps text-primary italic">Made with Love</p>
+<div class="stitched-border mx-auto w-1/2"></div>
+<p class="text-on-surface-variant text-body-md leading-relaxed">
+                    Each plushie is a labor of love, taking over <strong>8+ hours</strong> of focused hand-crocheting to complete. No two bunnies are exactly alike, giving your new friend its own unique personality and charm.
+                </p>
+<div class="flex justify-center pt-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">draw</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Materials Snippet -->
+<section class="mb-24 py-16 bg-surface-bright rounded-3xl px-8 md:px-16 text-center">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-on-surface">Our Material Promise</h2>
+<p class="text-on-surface-variant font-body-md max-w-2xl mx-auto mb-12">
+                We believe that the finest creations begin with the finest ingredients. Our commitment to sustainability means we only use fibers that are kind to the earth and your skin.
+            </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="space-y-3">
+<div class="w-16 h-16 rounded-full bg-white mx-auto flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<p class="font-label-caps text-label-caps uppercase">100% Organic</p>
+</div>
+<div class="space-y-3">
+<div class="w-16 h-16 rounded-full bg-white mx-auto flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+</div>
+<p class="font-label-caps text-label-caps uppercase">Natural Dyes</p>
+</div>
+<div class="space-y-3">
+<div class="w-16 h-16 rounded-full bg-white mx-auto flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-3xl">workspace_premium</span>
+</div>
+<p class="font-label-caps text-label-caps uppercase">Fair Trade</p>
+</div>
+<div class="space-y-3">
+<div class="w-16 h-16 rounded-full bg-white mx-auto flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-3xl">pets</span>
+</div>
+<p class="font-label-caps text-label-caps uppercase">Cruelty Free</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="space-y-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Voices of the Community</h2>
+<div class="flex items-center gap-2 text-primary">
+<div class="flex">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<span class="text-body-sm font-medium">4.9/5 based on 128 reviews</span>
+</div>
+</div>
+<button class="pill-button border border-primary text-primary font-label-caps text-label-caps px-8 py-3 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-lg">rate_review</span>
+      WRITE A REVIEW
+    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/20 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface-variant font-body-md italic leading-relaxed">"The bunny is even softer than I imagined! The craftsmanship is truly remarkable, you can feel the love in every stitch."</p>
+</div>
+<div class="flex items-center gap-4 pt-6 mt-6 border-t border-outline-variant/10">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Product thumbnail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6zmez2RRzahdj9vn154QS8vdyPqV-S6XFf22jEx0gHDd-W64m8bH7-4c1LvNpkg9J3ONIF35fORBsE0BQB3YMYo9DiHRUmrca-hueV-ofBkwkdqgtXeUKGRWhTljpKtuysx0rixQwIexv6uoiW06JlwuIMGlsNeJPhZ6wIfkNynKnkXlDxwx1Lw2Fr7BlYAHHVmOebxfwNxg8ffNUTxUgOiXBkjpu_wm9ly1yY4ha52ibp6rywsrgpMvSQ1SEPTmtyhewWaq2Js"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Sarah M.</p>
+<p class="text-on-surface-variant/60 text-xs uppercase tracking-wider">Verified Buyer</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/20 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface-variant font-body-md italic leading-relaxed">"Perfect addition to our nursery. It's rare to find toys made with such high-quality natural materials these days."</p>
+</div>
+<div class="flex items-center gap-4 pt-6 mt-6 border-t border-outline-variant/10">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Product thumbnail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6zmez2RRzahdj9vn154QS8vdyPqV-S6XFf22jEx0gHDd-W64m8bH7-4c1LvNpkg9J3ONIF35fORBsE0BQB3YMYo9DiHRUmrca-hueV-ofBkwkdqgtXeUKGRWhTljpKtuysx0rixQwIexv6uoiW06JlwuIMGlsNeJPhZ6wIfkNynKnkXlDxwx1Lw2Fr7BlYAHHVmOebxfwNxg8ffNUTxUgOiXBkjpu_wm9ly1yY4ha52ibp6rywsrgpMvSQ1SEPTmtyhewWaq2Js"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">James L.</p>
+<p class="text-on-surface-variant/60 text-xs uppercase tracking-wider">Verified Buyer</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/20 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface-variant font-body-md italic leading-relaxed">"I bought this as a gift and it was the highlight of the baby shower. Beautifully packaged and so unique."</p>
+</div>
+<div class="flex items-center gap-4 pt-6 mt-6 border-t border-outline-variant/10">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Product thumbnail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6zmez2RRzahdj9vn154QS8vdyPqV-S6XFf22jEx0gHDd-W64m8bH7-4c1LvNpkg9J3ONIF35fORBsE0BQB3YMYo9DiHRUmrca-hueV-ofBkwkdqgtXeUKGRWhTljpKtuysx0rixQwIexv6uoiW06JlwuIMGlsNeJPhZ6wIfkNynKnkXlDxwx1Lw2Fr7BlYAHHVmOebxfwNxg8ffNUTxUgOiXBkjpu_wm9ly1yY4ha52ibp6rywsrgpMvSQ1SEPTmtyhewWaq2Js"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Elena R.</p>
+<p class="text-on-surface-variant/60 text-xs uppercase tracking-wider">Verified Buyer</p>
+</div>
+</div>
+</div>
+</div>
+</section><footer class="bg-surface-container-low border-t border-outline-variant/20">
+<div class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-base">
+<div class="space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Artisanal Weave</h2>
+<p class="text-on-surface-variant font-body-sm max-w-xs">© 2024 Artisanal Weave. Handmade with Love. Bringing the warmth of heritage craft to the modern home.</p>
+</div>
+<div class="flex flex-wrap gap-8">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary underline decoration-dotted decoration-1 underline-offset-4" href="#">Shipping &amp; Returns</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary underline decoration-dotted decoration-1 underline-offset-4" href="#">Care Guide</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary underline decoration-dotted decoration-1 underline-offset-4" href="#">Wholesale</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary underline decoration-dotted decoration-1 underline-offset-4" href="#">Sustainability</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">alternate_email</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yarns of Art | Handcrafted Wool Creations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>.wool-texture-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url(https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg);
+    background-repeat: repeat;
+    opacity: 0.03;
+    pointer-events: none
+    }
+.stitched-line {
+    background-image: linear-gradient(to right, #82756a 50%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 10px 1px;
+    background-repeat: repeat-x
+    }
+.soft-elevation {
+    box-shadow: 0 10px 30px -15px rgba(74, 63, 53, 0.1)
+    }
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)
+    }
+.hover-lift:hover {
+    transform: translatey(-8px)
+    }</style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#dee7bf",
+                    "secondary": "#5a6242",
+                    "tertiary-fixed": "#ffd8e7",
+                    "error-container": "#ffdad6",
+                    "outline": "#82756a",
+                    "on-primary-fixed-variant": "#623f18",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fefae0",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5b3f4b",
+                    "outline-variant": "#d4c4b7",
+                    "surface-variant": "#e7e3ca",
+                    "secondary-fixed-dim": "#c2cba4",
+                    "primary-fixed": "#ffdcbd",
+                    "surface-container-high": "#ede9cf",
+                    "on-secondary-container": "#606848",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#f0bd8b",
+                    "background": "#fefae0",
+                    "surface": "#fefae0",
+                    "on-secondary-fixed": "#171e06",
+                    "tertiary": "#745662",
+                    "on-surface": "#1d1c0d",
+                    "primary-container": "#d4a373",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#424a2d",
+                    "on-background": "#1d1c0d",
+                    "error": "#ba1a1a",
+                    "surface-container": "#f2efd5",
+                    "on-tertiary-fixed": "#2b141f",
+                    "surface-container-low": "#f8f4db",
+                    "primary-fixed-dim": "#f0bd8b",
+                    "tertiary-container": "#c8a3b1",
+                    "on-surface-variant": "#50453b",
+                    "tertiary-fixed-dim": "#e3bccb",
+                    "primary": "#7d562d",
+                    "inverse-on-surface": "#f5f1d8",
+                    "secondary-fixed": "#dee7bf",
+                    "surface-dim": "#dedbc2",
+                    "on-tertiary-container": "#543944",
+                    "inverse-surface": "#323120",
+                    "surface-container-highest": "#e7e3ca",
+                    "on-primary-container": "#5b3912",
+                    "surface-tint": "#7d562d",
+                    "on-primary-fixed": "#2c1600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Libre Caslon Text"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Libre Caslon Text"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Libre Caslon Text"],
+                    "label-caps": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-base max-w-container-max mx-auto h-20">
+<div class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">Yarns of Art</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#products">Products</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#materials">Materials</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#custom">Custom Orders</a>
+</div>
+<div class="flex items-center gap-6 text-primary">
+<button class="material-symbols-outlined hover:opacity-80 transition-opacity" data-icon="shopping_basket">shopping_basket</button>
+<button class="material-symbols-outlined hover:opacity-80 transition-opacity" data-icon="account_circle">account_circle</button>
+<button class="md:hidden material-symbols-outlined" data-icon="menu">menu</button>
+</div>
+</nav>
+</header>
+<main class="relative">
+<div class="wool-texture-overlay"></div>
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center px-margin-desktop overflow-hidden">
+<div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-12 items-center w-full py-20">
+<div class="z-10 order-2 lg:order-1">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps mb-6">HANDMADE WITH LOVE</span>
+<h1 class="font-headline-xl text-headline-xl mb-8 leading-tight">Yarns of Art Handcrafted Wool Creations Made with Love ❤️</h1>
+<p class="text-on-surface-variant text-lg mb-10 max-w-xl leading-relaxed">
+                        Yarns of Art specializes in beautiful handmade creations crafted entirely from high-quality wool yarn. Every product is carefully crocheted by hand, making each piece unique, soft, durable, and full of personality.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-caps text-label-caps tracking-widest hover:shadow-lg transition-all active:scale-95">SHOP COLLECTION</button>
+<button class="border border-outline text-primary px-10 py-4 rounded-full font-label-caps text-label-caps tracking-widest hover:bg-surface-container transition-all">VIEW PATTERNS</button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 flex justify-center items-center">
+<div class="relative w-full aspect-square max-w-md">
+<div class="absolute inset-0 bg-primary-container rounded-full opacity-10 animate-pulse"></div>
+<img class="relative z-10 w-full h-full object-cover rounded-full border-8 border-white shadow-2xl" data-alt="A professional studio photograph of a beautifully handcrafted crochet wool plush toy (amigurumi) sitting on a soft linen surface. The lighting is warm and sun-drenched, emphasizing the tactile texture of the high-quality wool yarn. The color palette features soft creams, beiges, and muted blush pinks, creating a premium and cozy handmade aesthetic for Yarns of Art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdmQDFyXBAGSbsOONVEVypfMQ5bI9NBmA8CV2xpEvmGt0IWF-rwClBCJ-sSOmhNVrjWPcMvv1iGOnhN6_CN6VC9IZwFGb7QsIlLWy_hP0JC699Y7YqgimqpuDkr13VlG5v3jWFcQAAKgraAguwHbH2SdYflaeAu6pi3kAD-0D-78RAfG_rnrAoTf7ZX9RsDRjYD63eKCEQ6G07v5vtv7VAkjS9_4sjph-ttr1A4xU8lkSkYqJteCwnDpCKEfQ8FkUDmIdu99NXSFI"/>
+<div class="absolute -bottom-4 -right-4 bg-tertiary-fixed p-6 rounded-2xl shadow-xl z-20">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-fixed-variant" data-icon="volunteer_activism">volunteer_activism</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Products (Bento Grid Style) -->
+<section class="py-24 px-margin-desktop bg-surface-container-low relative" id="products">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-4">Our Products</h2>
+<div class="h-1 w-24 bg-primary rounded-full"></div>
+</div>
+<p class="text-on-surface-variant max-w-md">A curated selection of unique wool crafts, from delicate flowers to functional bags, all handmade to perfection.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[1000px]">
+<!-- Large Card: Flowers -->
+<div class="md:col-span-2 md:row-span-1 bg-surface rounded-3xl overflow-hidden hover-lift soft-elevation group relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110 min-h-[300px]" data-alt="A stunning arrangement of crochet wool flowers in a rustic vase. The bouquet features various styles of handmade blooms in a warm palette of peach, cream, and sage green. Soft morning light catches the intricate stitches of the petals, showcasing the high-end craftsmanship of Yarns of Art." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDX03PqlKdXGSfAvnB-0S3PnVv-oxrPSoTxOZuFygDcys2f8qvq--vcd_YhZ-rFg5kq5Ee0bqr4XuAGgq7CRThx052c8ydghhUr6D8R3nnDLy6L6ZqOZzAdutUkJHLGo_tKebk40TWjf0AUDwNyn2WZbucXaoKZNGCB90R-edZZHa9uCrdBfmKwvd6nzTIBhqBusKoaZFgdCG4N1OOVUr5oh7O46HIYTS9mdSzUwDfg3j_ijQo482yu9iA6DSjWgM52fh1u0N5ijJI')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8 text-white">
+<h3 class="font-headline-lg text-2xl mb-2">Crochet Wool Flowers</h3>
+<p class="font-body-sm text-body-sm opacity-90 mb-4">Everlasting beauty in every petal.</p>
+<span class="text-label-caps font-label-caps border-b border-white self-start">DISCOVER</span>
+</div>
+</div>
+<!-- Amigurumi -->
+<div class="md:col-span-1 bg-tertiary-container/30 rounded-3xl p-8 flex flex-col justify-between hover-lift border border-outline-variant/30">
+<div>
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-icon="toys">toys</span>
+<h3 class="font-headline-lg text-xl mb-3">Wool Plush Toys</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Soft amigurumi friends full of personality.</p>
+</div>
+<img class="w-full h-40 object-contain mt-4" data-alt="A collection of cute, handcrafted amigurumi wool toys arranged together. A small bear, a bunny, and a kitten with tiny stitched details. The yarn texture is prominent, and the scene is lit with soft, warm studio lighting consistent with the Yarns of Art brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbTMrNpJZ6c8y7b4ry1ezNBhmbS1S5ah8huqP87wdVrs2ETa-IpVy8jt2lPtIxdyFvIcWnhwn5KgoTFleMoRY0moJ7ua2A1wzBMsvKbACUGDzCfddA1WZzjWCi5iZY0pIG1HmA3iyazHt5oC5TYwTPCDsrxyWRVqihK-QNn5kchgyaxy1Qb3nAWrNadxxa6IbNDVH72W_X1jZSRnqDTVZFjdKmV3UoKfkfbHTl6QMRAHtJgUrUIqiBDv5oLl-DjELWPbC0MLlj4fI"/>
+</div>
+<!-- Keychains -->
+<div class="md:col-span-1 bg-secondary-container/30 rounded-3xl p-8 flex flex-col justify-between hover-lift border border-outline-variant/30">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="key">key</span>
+<h3 class="font-headline-lg text-xl mb-3">Wool Keychains</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Small charms to brighten your everyday bag.</p>
+</div>
+<div class="flex justify-center mt-4">
+<div class="w-24 h-24 rounded-full bg-white/50 border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl" data-icon="flare">flare</span>
+</div>
+</div>
+</div>
+<!-- Bags -->
+<div class="md:col-span-1 md:row-span-1 bg-surface rounded-3xl overflow-hidden hover-lift soft-elevation group relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110 min-h-[300px]" data-alt="A close-up of a stylish, handmade wool crochet bag in a minimalist aesthetic. The bag features a chunky textured knit in a neutral beige color. It is hanging on a simple wooden peg against a cream-colored wall. The lighting is soft and editorial, highlighting the premium quality of the material." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlSdY-7iDM7Xls1Tj7ko2Mxz5UNzLmRpBEIcA5kHnZTPJdTGs3GlJw8KGyt7Eup9tJk04LXjnMV9YF80RE3i0LqRxEqO18uMSUSwweiWtHDYEZ9N2MTDPOQTeEjUBzKAMcAeJRxfdchzh9kdlMiiUvpzVudZzmIlBaXio9rwlSTI0mI9bxGAk5-HZzU2CWWyJWZOQVOP-d_WGXCAdxQYA50aAwokXnLB2qkbg18dOLjqV_rc-CQPqnN7vdSU01RLEsbxRHmjUs2Ng')"></div>
+<div class="absolute inset-0 bg-black/20 flex flex-col justify-end p-8 text-white">
+<h3 class="font-headline-lg text-xl">Wool Bags</h3>
+</div>
+</div>
+<!-- Personalized/Custom -->
+<div class="md:col-span-2 md:row-span-1 bg-primary-container rounded-3xl p-12 text-on-primary flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[200px]" data-icon="edit_note">edit_note</span>
+</div>
+<h3 class="font-headline-lg text-3xl mb-4">Custom Crochet Orders</h3>
+<p class="text-lg mb-8 max-w-sm">Bring your imagination to life. We specialize in personalized gifts tailored to your specific requests.</p>
+<button class="bg-white text-primary px-8 py-3 rounded-full font-label-caps text-label-caps w-fit hover:bg-surface-bright transition-colors">START A CUSTOM ORDER</button>
+</div>
+<!-- Home Decor -->
+<div class="md:col-span-1 bg-surface rounded-3xl p-8 flex flex-col justify-between hover-lift border border-outline-variant/30">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="home_app_fill">home_app_logo</span>
+<h3 class="font-headline-lg text-xl mb-3">Home Decor</h3>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="h-20 bg-surface-container rounded-xl"></div>
+<div class="h-20 bg-surface-container rounded-xl"></div>
+</div>
+</div>
+</div>
+<!-- Horizontal categories list -->
+<div class="mt-12 flex flex-wrap justify-center gap-4">
+<span class="px-6 py-2 rounded-full bg-white border border-outline-variant text-on-surface-variant font-label-caps text-label-caps">Wool Accessories</span>
+<span class="px-6 py-2 rounded-full bg-white border border-outline-variant text-on-surface-variant font-label-caps text-label-caps">Personalized Wool Gifts</span>
+<span class="px-6 py-2 rounded-full bg-white border border-outline-variant text-on-surface-variant font-label-caps text-label-caps">Crochet Bouquets</span>
+</div>
+</div>
+</section>
+<!-- Our Materials -->
+<section class="py-24 px-margin-desktop overflow-hidden" id="materials">
+<div class="max-w-container-max mx-auto">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="relative z-10 space-y-6">
+<div class="p-2 bg-white rounded-3xl shadow-2xl rotate-2">
+<img class="w-full h-80 object-cover rounded-2xl" data-alt="A macro photograph of high-quality premium wool yarn skeins in various natural earth tones—sage green, soft brown, and cream. The fibers of the wool are sharply detailed, emphasizing the soft and durable quality mentioned in the Yarns of Art materials description. The lighting is natural and bright." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8aLBdWYr_fKLAI3Rtc7LCIVOmZBzwXlmYULJ7z5V7tUgpTCgl0fXdJ9Ycmn3yXaJqj-wowIi_40ZFoqYOZsl5rDYFF9xmjbCk3Fqm54h5VLeiI9GL-1VHF4Yn-qigi8SZc5oNGhCxd9A58gtv3CFXTu3it6-EG2mXRf0tBJy_SNRebpBm0U-Tc3KKbHwAK0Nd3wNjSLdw2IIBjFNGsvSdzxbWrtGazQNWhNhHHIz7Yz0xAU-N6U5Pd-PKa68ETfWmoBEdttZB8Mc"/>
+</div>
+<div class="p-2 bg-white rounded-3xl shadow-2xl -rotate-2 ml-12">
+<img class="w-full h-64 object-cover rounded-2xl" data-alt="Detailed close-up of a crochet hook working through a stitch of soft pink wool yarn. The focus is on the intricate detail of the stitch and the expert finishing techniques. The background is a soft, warm neutral studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWSyfyPVxY0tfuGffieO17s5fGot53Cqm7GD1i1RuCNjfxI4vd0RA4CHLXk9Oo2kZYjOHhREgdfpxNIYYt6mZM3wbi43eRkElY2nVd5CINfRH_odrB8_tlKlyVDaYiUbtEzkvFVovgeq1ag0P5snVxGYw3yh6WaAx9NXNE9ElwgYxv4BKxyGtpiHa5FKlPoMPSKDaP7msjg_Q9N07FimIoIxp5HPDSONJkmqcBATAefaASkFW-2XfqmhUtiH9DtRyb8wiNGVUda00"/>
+</div>
+</div>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6">Our Materials</h2>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+                            "We use premium-quality wool yarn to create soft, durable, and long-lasting handmade products. Every stitch is carefully crafted to ensure beautiful finishing and excellent quality."
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span class="font-body-md">Ethically sourced premium wool</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span class="font-body-md">Hypoallergenic and soft to the touch</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span class="font-body-md">Resilient fibers for long-lasting items</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-24 px-margin-desktop bg-surface-bright relative">
+<div class="max-w-container-max mx-auto text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Why Choose Us</h2>
+<div class="h-1 w-24 bg-primary rounded-full mx-auto mb-12"></div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Feature 1 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<p class="font-label-caps text-label-caps">Premium Wool Yarn</p>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="pan_tool_alt">pan_tool_alt</span>
+</div>
+<p class="font-label-caps text-label-caps">100% Handmade</p>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+</div>
+<p class="font-label-caps text-label-caps">Eco-Friendly Craft</p>
+</div>
+<!-- Feature 4 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="redeem">redeem</span>
+</div>
+<p class="font-label-caps text-label-caps">Perfect for Gifts</p>
+</div>
+<!-- Feature 5 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="palette">palette</span>
+</div>
+<p class="font-label-caps text-label-caps">Custom Designs</p>
+</div>
+<!-- Feature 6 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="favorite">favorite</span>
+</div>
+<p class="font-label-caps text-label-caps">Crafted with Love</p>
+</div>
+<!-- Feature 7 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+</div>
+<p class="font-label-caps text-label-caps">High-Quality Finish</p>
+</div>
+<!-- Feature 8 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 soft-elevation">
+<span class="material-symbols-outlined text-primary" data-icon="cloud">cloud</span>
+</div>
+<p class="font-label-caps text-label-caps">Soft &amp; Durable</p>
+</div>
+</div>
+</div>
+<!-- Stitched Line Decoration -->
+<div class="stitched-line h-px w-full max-w-container-max mx-auto opacity-30 mt-12"></div>
+</section>
+<!-- Newsletter / Call to action -->
+<section class="py-24 px-margin-desktop">
+<div class="max-w-3xl mx-auto text-center bg-surface-container-highest p-12 md:p-20 rounded-[40px] border border-outline-variant/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-24 h-24 bg-tertiary-fixed/40 rounded-br-full"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-4">Stay in the Loop</h2>
+<p class="text-on-surface-variant mb-10">Join our newsletter for new collection drops and special handmade patterns.</p>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-1 bg-white border-none rounded-full px-8 py-4 focus:ring-2 focus:ring-primary" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-caps text-label-caps tracking-widest hover:bg-on-primary-container transition-colors">SUBSCRIBE</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-container-low border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto text-center md:text-left">
+<div class="flex flex-col gap-4">
+<div class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed-dim">Yarns of Art</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm leading-relaxed max-w-xs mx-auto md:mx-0">Handcrafting timeless wool pieces with heritage techniques and modern elegance.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-label-caps mb-2 text-primary">Information</h4>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-sm text-body-sm" href="#">Contact Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-sm text-body-sm" href="#">Shipping Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-sm text-body-sm" href="#">Care Instructions</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-sm text-body-sm" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-label-caps text-label-caps mb-2 text-primary">Follow Our Journey</h4>
+<div class="flex justify-center md:justify-start gap-4">
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-primary-container hover:text-white transition-all text-primary" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="camera">camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-primary-container hover:text-white transition-all text-primary" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+</a>
+</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm mt-4">© 2024 Yarns of Art. Handcrafted with Love.</p>
+</div>
+</div>
+</footer>
+<!-- FAB for Custom Inquiry (Contextual FAB) -->
+<button class="fixed bottom-8 right-8 bg-primary-container text-on-primary-container w-16 h-16 rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all z-[60] md:w-auto md:px-8 md:gap-3" id="fab-custom">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span class="hidden md:inline font-label-caps text-label-caps">CUSTOM INQUIRY</span>
+</button>
+<script>
+        // Simple micro-interaction for smooth scrolling and FAB visibility
+        document.addEventListener('DOMContentLoaded', () => {
+            const fab = document.getElementById('fab-custom');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    fab.classList.remove('translate-y-24', 'opacity-0');
+                    fab.classList.add('translate-y-0', 'opacity-100');
+                } else {
+                    // Start hidden
+                }
+            });
+
+            // Navigation Active State Logic
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    navLinks.forEach(l => {
+                        l.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+                        l.classList.add('text-on-surface-variant', 'hover:text-primary');
+                    });
+                    link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+                    link.classList.remove('text-on-surface-variant', 'hover:text-primary');
+                });
+            });
+        });
+    </script>
+</body></html>
